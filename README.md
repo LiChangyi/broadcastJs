@@ -14,17 +14,18 @@
 
 ### 展示界面&使用
 
+- github地址： [git仓库地址](https://github.com/LiChangyi/broadcastJs)
+- 演示demo： [在线浏览地址](https://lichangyi.github.io/broadcastJs/src/index.html)
+
 * PC端展示：
 
   ​	![PC端演示](./img/1.gif)
 
 * 移动端展示：
 
-  ![移动端演示gif](./img/2.gif)
+  ​	![移动端演示gif](./img/2.gif)
 
 
-* github地址：
-* 演示demo：
 
 
 
@@ -56,7 +57,7 @@
    </html>
    ````
 
-4. 在后面如果需要一个轮播图，这实列化这个对象：
+4. 在后面如果需要一个轮播图，则实列化这个对象：
 
    ``` javascript
    var box = document.getElementById('box');
@@ -151,7 +152,7 @@ new Broadcast (el,imagesAndUrl,JSON)
 
 ``` javascript
 // 动态添加一些css样式
-let cssStr = `.broadcastMe .broadcastMe-list {width:   ${(this.imagesAndUrl.length+2)*this.el.clientWidth}px;}.broadcastMe .broadcastMe-list .broadcastMe-item {width:${this.el.clientWidth}px;}`;
+let cssStr = `.broadcastMe .broadcastMe-list {width: ${(this.imagesAndUrl.length+2)*this.el.clientWidth}px;}.broadcastMe .broadcastMe-list .broadcastMe-item {width:${this.el.clientWidth}px;}`;
 
 let styleNode = document.createElement('style');
 styleNode.innerText = cssStr;
