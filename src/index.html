@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试页面</title>
+  <style>
+    body {
+      padding: 0 1rem;
+    }
+    #box {
+      margin: 5rem auto;
+      width: 600px;
+      /* height: 300px; */
+    }
+    @media screen and (max-width:768px) {
+      #box {
+        width: 100%;
+      }
+    }
+  </style>
+  <!-- 引入插件的css文件 -->
+  <link rel="stylesheet" href="./css/broadcast-me.css">
+</head>
+<body>
+  <div id="box">
+  </div>
+  <!-- 引入插件的js文件 -->
+  <script src="./js/broadcast-me.js"></script>
+  <script>
+    var box = document.getElementById('box');
+    var imagesAndUrl = [{
+      imgSrc : './img/1.jpg',
+      linkHref : "#"
+    },{
+      imgSrc : './img/2.jpg',
+      linkHref : '1'
+    },{
+      imgSrc : './img/3.jpg',
+      linkHref : '#'
+    },{
+      imgSrc : './img/4.jpg',
+      linkHref : '#'
+    },{
+      imgSrc : './img/5.jpg',
+      linkHref : '#'
+    }];
+    var broadcast = new Broadcast(box,imagesAndUrl,{
+      transitionTime : 800, // 动画过渡时间，默认为800ms
+      intervalTime : 5000 // 图片切换时间，默认为5s
+    });
+  </script>
+</body>
+</html>
+
