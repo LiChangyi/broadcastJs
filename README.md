@@ -230,3 +230,10 @@ Broadcast.prototype.render = function () {
 ### 最后
 
 因为才疏学浅，代码才刚刚写完，测试较少，很多bug还未发现，如果发现问题，欢迎留言指出，敬请斧正。谢谢！！
+
+
+
+### 感谢(BUG反馈)
+
+* 感谢掘金论坛`wensent`提出的BUG，针对移动端不能识别mouseover事件，所以导致移动端刚滑动改变一张图片，然后定时器重新覆盖的问题。。现BUG已经被修改，添加了代码：在touchstart中清楚定时器，在touchend中在开启
+

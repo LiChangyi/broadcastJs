@@ -91,29 +91,24 @@ Broadcast.prototype.bindEvent = function () {
     this.spotClick(obj);
   })
 
-  // 自动轮播
-  let timer = setInterval(() => {
-    if(this.animationMark) return;
-    this.index++;
-    this.render();
-  },this.intervalTime)
+  // 开启自动轮播
+  var timer = setInterval(autoPlay.bind(this),this.intervalTime);
 
   this.el.addEventListener("mouseover",() => {
     clearInterval(timer);
   })
 
   this.el.addEventListener("mouseout",() => {
-    timer = setInterval(() => {
-      if(this.animationMark) return;
-      this.index++;
-      this.render();
-    },this.intervalTime)
+    timer = setInterval(autoPlay.bind(this),this.intervalTime);
   })
 
   // 移动端手指滑动
   let stratPointX = 0;
   let offsetX = 0;
   this.el.addEventListener("touchstart", (e) => {
+    // 清楚定时器，因为移动端不能监听到Mouseover时间
+    clearInterval(timer);
+
     stratPointX = e.changedTouches[0].pageX;
     offsetX = this.broadcastMeList.offsetLeft;
     this.animationMark = true;
@@ -130,8 +125,19 @@ Broadcast.prototype.bindEvent = function () {
     // 判断正在滚动的图片距离左右图片的远近，
     this.index = Math.round(-left/this.el.clientWidth);
     this.animationMark = false;
+    // 开启定时器
+    timer = setInterval(autoPlay.bind(this),this.intervalTime);
+
     this.render();
   })
+
+  
+  // 封装自动轮播
+  function autoPlay () {
+    if(this.animationMark) return;
+    this.index++;
+    this.render();
+  }
 }
 
 // render => 根据index的值，渲染当前要显示的界面
